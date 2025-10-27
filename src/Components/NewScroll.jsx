@@ -1,8 +1,11 @@
 import React, { useRef } from "react";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import ReactGA from "react-ga4";
 
 const url = (name, wrap = false) =>
-  `${wrap ? "url(" : ""}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${
+  `${
+    wrap ? "url(" : ""
+  }https://awv3node-homepage.surge.sh/build/assets/${name}.svg${
     wrap ? ")" : ""
   }`;
 
@@ -12,7 +15,6 @@ const ParallaxWebsite = () => {
   return (
     <div className="w-full h-screen bg-[#253237] overflow-hidden">
       <Parallax ref={parallax} pages={3}>
-
         {/* ---------------- Background Stars (persistent) ---------------- */}
         <ParallaxLayer
           offset={0}
@@ -36,14 +38,29 @@ const ParallaxWebsite = () => {
           </p>
           <button
             className="mt-8 px-8 py-3 text-lg rounded-lg bg-blue-400 hover:bg-blue-500 transition text-white font-semibold"
+            onClick={() => {
+              ReactGA.event({
+                category: "Button",
+                action: "Click",
+                label: "Learn More",
+              });
+            }}
           >
             Learn More ↓
           </button>
         </ParallaxLayer>
 
         {/* Decorative floating object */}
-        <ParallaxLayer offset={0.3} speed={-0.2} style={{ pointerEvents: "none" }}>
-          <img src={url("satellite4")} alt="satellite" className="w-[15%] ml-[70%]" />
+        <ParallaxLayer
+          offset={0.3}
+          speed={-0.2}
+          style={{ pointerEvents: "none" }}
+        >
+          <img
+            src={url("satellite4")}
+            alt="satellite"
+            className="w-[15%] ml-[70%]"
+          />
         </ParallaxLayer>
 
         {/* ---------------- ABOUT US SECTION ---------------- */}
@@ -61,10 +78,25 @@ const ParallaxWebsite = () => {
         >
           <h2 className="text-4xl font-bold">About Us</h2>
           <p className="mt-4 max-w-xl text-lg">
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages,
+            and more recently with desktop publishing software like Aldus
+            PageMaker including versions of Lorem Ipsum
           </p>
           <button
-            onClick={() => parallax.current.scrollTo(2)}
+            onClick={() => {
+              ReactGA.event({
+                category: "Button",
+                action: "Click",
+                label: "Contact Us",
+              });
+              parallax.current.scrollTo(2);
+            }}
             className="mt-8 px-8 py-3 text-lg rounded-lg bg-purple-500 hover:bg-purple-600 transition text-white font-semibold"
           >
             Contact Us ↓
@@ -72,16 +104,16 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         </ParallaxLayer>
 
         {/* Floating decorative card */}
-        <ParallaxLayer offset={1.3} speed={-0.2} style={{ pointerEvents: "none" }}>
+        <ParallaxLayer
+          offset={1.3}
+          speed={-0.2}
+          style={{ pointerEvents: "none" }}
+        >
           <img src={url("cloud")} alt="cloud" className="w-[20%] ml-[10%]" />
         </ParallaxLayer>
 
         {/* ---------------- CONTACT SECTION ---------------- */}
-        <ParallaxLayer
-          offset={2}
-          speed={0.3}
-          className="bg-[#87BCDE]"
-        />
+        <ParallaxLayer offset={2} speed={0.3} className="bg-[#87BCDE]" />
 
         <ParallaxLayer
           offset={2}
@@ -111,13 +143,19 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
             />
             <button
               type="submit"
+              onClick={() => {
+                ReactGA.event({
+                  category: "Form",
+                  action: "Submit",
+                  label: "Contact Form Submission",
+                });
+              }}
               className="p-3 rounded-md bg-[#253237] hover:bg-[#1a1f24] transition text-white font-bold"
             >
               Send Message
             </button>
           </form>
         </ParallaxLayer>
-
       </Parallax>
     </div>
   );

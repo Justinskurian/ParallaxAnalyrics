@@ -10,9 +10,9 @@ import Navbar from "./Components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import AboutUs from "./Components/About";
 import ReactGA from "react-ga4";
+import AnalyticsTracker from "./Components/AnalyticsTracker";
 ReactGA.initialize("G-Z9VGTRRGMY");
-ReactGA.send("pageview");
-
+ReactGA.send({ hitType: "pageview", page: window.location.pathname });
 
 ("./Components/NewScroll");
 
@@ -23,7 +23,7 @@ function App() {
         <MultilayerParallax />
       </div> */}
       <Navbar />
-
+      <AnalyticsTracker />
       <Routes>
         <Route path="/" element={<ParallaxWebsite />} />
 
