@@ -9,6 +9,10 @@ import ParallaxWebsite from "./Components/NewScroll";
 import Navbar from "./Components/Navbar";
 import { Routes, Route } from "react-router-dom";
 import AboutUs from "./Components/About";
+import ReactGA from "react-ga4";
+ReactGA.initialize("G-Z9VGTRRGMY");
+ReactGA.send("pageview");
+
 
 ("./Components/NewScroll");
 
