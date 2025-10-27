@@ -7,10 +7,10 @@ import SimpleParallax from "simple-parallax-js";
 import ScrollParallax from "./Components/ScrollParallax";
 import ParallaxWebsite from "./Components/NewScroll";
 import Navbar from "./Components/Navbar";
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 import AboutUs from "./Components/About";
 
- "./Components/NewScroll";
+("./Components/NewScroll");
 
 function App() {
   return (
@@ -18,12 +18,12 @@ function App() {
       {/* <div className="w-full h-screen">
         <MultilayerParallax />
       </div> */}
-      <Navbar/>
-      
-<Routes>
-         <Route path="/" element={<ParallaxWebsite />} />
+      <Navbar />
 
-      <Route path="/about" element={<AboutUs/>}></Route>
+      <Routes>
+        <Route path="/" element={<ParallaxWebsite />} />
+
+        <Route path="/about" element={<AboutUs />}></Route>
       </Routes>
       {/* <SimpleParallax maxTransition={0} orientation="right">
         <img src={"/P1.png"} alt={"image"} />
@@ -32,6 +32,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;
